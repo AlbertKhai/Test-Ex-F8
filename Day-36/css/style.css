@@ -1,0 +1,380 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #d7d7dc;
+  line-height: 1.4;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #2361ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #000;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+button {
+  color: #000;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.quiz__btn {
+  border-radius: 5px;
+  border: 2px solid #05cfff;
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #05cfff;
+  background-color: #030d22;
+  transition: color 0.3s, background-color 0.3s;
+}
+.quiz__btn:hover {
+  color: #030d22;
+  background-color: #05cfff;
+}
+
+.millionaire {
+  height: 100vh;
+  background-color: #030d22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.millionaire .container {
+  width: 95%;
+  height: 95vh;
+  padding: 30px 0;
+  display: flex;
+  gap: 50px;
+}
+.millionaire .container .audio {
+  display: none;
+}
+.millionaire .container .money {
+  display: flex;
+  flex: 2 0;
+  flex-direction: column-reverse;
+  justify-content: center;
+  gap: 7px;
+  font-family: "Roboto Mono", monospace;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0.4s;
+}
+.millionaire .container .money.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .money .money__level {
+  border: 2px solid #d7d7dc;
+  border-radius: 99px;
+  padding: 5px 15px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+@keyframes ready {
+  0% {
+    border-color: #d7d7dc;
+    background-color: #d7d7dc;
+  }
+  50% {
+    border-color: #05cfff;
+    background-color: #05cfff;
+  }
+  100% {
+    border-color: #d7d7dc;
+    background-color: #d7d7dc;
+  }
+}
+.millionaire .container .money .money__level.level-important {
+  border-color: #d7d7dc;
+  color: #030d22;
+  background-color: #d7d7dc;
+}
+.millionaire .container .money .money__level.level-important.level-ready {
+  animation-name: ready;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+.millionaire .container .money .money__level.level-pass:not(.level-important) {
+  border-color: #fab840;
+  color: #030d22;
+  background-color: #fab840;
+}
+.millionaire .container .money .money__level.level-pass.level-important {
+  border-color: #05cfff;
+  color: #030d22;
+  background-color: #05cfff;
+}
+.millionaire .container .quiz {
+  flex: 8 0;
+  position: relative;
+}
+.millionaire .container .quiz .quiz__logo {
+  position: relative;
+  z-index: 2;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  opacity: 1;
+  visibility: visible;
+  transition: translate 1s, scale 1s, opacity 0.3s, visibility 0.3s;
+}
+.millionaire .container .quiz .quiz__logo.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.millionaire .container .quiz .quiz__logo.ready {
+  translate: -28% 70%;
+  scale: 2;
+}
+.millionaire .container .quiz .quiz__logo .quiz__logo-img {
+  display: block;
+  max-height: 100%;
+  object-fit: cover;
+}
+.millionaire .container .quiz .quiz__content {
+  margin-top: 30px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0.5s;
+}
+.millionaire .container .quiz .quiz__content.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .quiz .quiz__content .quiz__question {
+  border-radius: 10px;
+  padding: 20px 25px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #030d22;
+  background-color: #05cfff;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+.millionaire .container .quiz .quiz__content .quiz__answer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn {
+  border: 2px solid #05cfff;
+  border-radius: 99px;
+  width: 100%;
+  height: 100%;
+  padding: 20px 30px;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #05cfff;
+  background-color: #030d22;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn.selected {
+  color: #030d22;
+  background-color: #05cfff;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn.right {
+  color: #030d22;
+  background-color: #fab840;
+  border-color: #fab840;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn.wrong {
+  color: #030d22;
+  background-color: #f83a6d;
+  border-color: #f83a6d;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn .answer__label {
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: translate 0.3s;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn .answer__content {
+  transition: translate 0.3s;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn span {
+  pointer-events: none;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn:hover .answer__label {
+  translate: 15px;
+}
+.millionaire .container .quiz .quiz__content .quiz__answer .answer__btn:hover .answer__content {
+  translate: 15px;
+}
+.millionaire .container .quiz .quiz__start {
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  margin: 0 auto;
+  text-align: center;
+  translate: -50% 0;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0.4s;
+}
+.millionaire .container .quiz .quiz__start.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .quiz .quiz__start .quiz__start-tutorial {
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px 25px;
+  text-align: left;
+  text-align-last: center;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #030d22;
+  background-color: #05cfff;
+}
+.millionaire .container .quiz .quiz__start .quiz__start-btn {
+  margin-top: 40px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0;
+}
+.millionaire .container .quiz .quiz__start .quiz__start-btn.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .quiz .quiz__ready {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 350px;
+  background-color: #030d22;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0;
+}
+.millionaire .container .quiz .quiz__ready.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex: 1 0;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0.4s;
+}
+.millionaire .container .support.hide {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+}
+.millionaire .container .support .support-btn {
+  width: 100px;
+  height: 60px;
+  border: 3px solid #05cfff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #05cfff;
+  background-color: #030d22;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  transition-property: border, color, background-color, opacity, visibility;
+  transition-duration: 0.3s;
+  opacity: 1;
+  visibility: visible;
+}
+.millionaire .container .support .support-btn.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.millionaire .container .support .support-btn:hover {
+  color: #030d22;
+  background-color: #05cfff;
+}
+.millionaire .container .support .support-btn.used {
+  border: 3px solid #d7d7dc;
+  color: #d7d7dc;
+  background-color: #030d22;
+  opacity: 0.5;
+  cursor: auto;
+}
+.millionaire .container .support .support-btn i {
+  font-size: 2.2rem;
+}
+
+/*# sourceMappingURL=style.css.map */

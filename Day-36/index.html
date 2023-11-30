@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Day-36</title>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
+      <link rel="stylesheet" href="./css/style.css" />
+   </head>
+   <body>
+      <div class="millionaire">
+         <div class="container">
+            <ol class="money hide">
+               <li class="money__level level-1">1<span>$ 200</span></li>
+               <li class="money__level level-2">2<span>$ 400</span></li>
+               <li class="money__level level-3">3<span>$ 600</span></li>
+               <li class="money__level level-4">4<span>$ 1.200</span></li>
+               <li class="money__level level-5 level-important">
+                  5<span>$ 2.000</span>
+               </li>
+               <li class="money__level level-6">6<span>$ 3.000</span></li>
+               <li class="money__level level-7">7<span>$ 6.000</span></li>
+               <li class="money__level level-8">8<span>$ 10.000</span></li>
+               <li class="money__level level-9">9<span>$ 14.000</span></li>
+               <li class="money__level level-10 level-important">
+                  10<span>$ 22.000</span>
+               </li>
+               <li class="money__level level-11">11<span>$ 30.000</span></li>
+               <li class="money__level level-12">12<span>$ 40.000</span></li>
+               <li class="money__level level-13">13<span>$ 60.000</span></li>
+               <li class="money__level level-14">14<span>$ 85.000</span></li>
+               <li class="money__level level-15 level-important">
+                  15<span>$ 150.000</span>
+               </li>
+            </ol>
+            <!-- End Money Level -->
+
+            <div class="quiz">
+               <figure class="quiz__logo ready">
+                  <img
+                     src="./assets/imgs/logo-tv-show-millionaire.png"
+                     alt="Logo tv show millionaire"
+                     class="quiz__logo-img"
+                  />
+               </figure>
+               <!-- End Logo -->
+
+               <div class="quiz__content hide">
+                  <p class="quiz__question"></p>
+                  <div class="quiz__answer" data-value="1">
+                     <button class="answer__btn" data-value="A">
+                        <span class="answer__label">A.</span>
+                        <span class="answer__content"></span>
+                     </button>
+
+                     <button class="answer__btn" data-value="B">
+                        <span class="answer__label">B.</span>
+                        <span class="answer__content"></span>
+                     </button>
+
+                     <button class="answer__btn" data-value="C">
+                        <span class="answer__label">C.</span>
+                        <span class="answer__content"></span>
+                     </button>
+
+                     <button class="answer__btn" data-value="D">
+                        <span class="answer__label">D.</span>
+                        <span class="answer__content"></span>
+                     </button>
+                  </div>
+               </div>
+               <!-- End Quiz Content-->
+
+               <div class="quiz__start hide">
+                  <p class="quiz__start-tutorial">
+                     Chương trình của chúng ta có tất cả <b>15</b> câu hỏi.<br />
+                     Trong đó có <b>3</b> mốc quan trọng là mốc <b>5</b>, mốc
+                     <b>10</b> và <b>15</b>.<br />
+                     Mỗi câu hỏi sẽ có thời gian 15 giây để trả lời.<br />
+
+                     Chúc may mắn 😎.
+                  </p>
+                  <button class="quiz__start-btn quiz__btn">Bắt Đầu</button>
+               </div>
+               <!-- End Ready -->
+
+               <div class="quiz__ready">
+                  <button class="quiz__ready-btn quiz__btn">Sẵn sàng</button>
+               </div>
+               <!-- End Start -->
+            </div>
+            <!-- End Quiz -->
+
+            <div class="support hide">
+               <button class="support-btn 50-support">50/50</button>
+               <button class="support-btn nyc-support">
+                  <i class="fa-solid fa-phone"></i>
+               </button>
+               <button class="support-btn people-support">
+                  <i class="fa-solid fa-people-group"></i>
+               </button>
+               <button class="support-btn expert-support hide">
+                  <i class="fa-solid fa-graduation-cap"></i>
+               </button>
+            </div>
+            <!-- End Support -->
+
+            <div class="audio">
+               <audio
+                  src="./assets/audios/round-1.mp3"
+                  class="audio__round-1"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/round-2.wav"
+                  class="audio__round-2"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/start.mp3"
+                  class="audio__start"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/success.mp3"
+                  class="audio__success"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/waiting.mp3"
+                  class="audio__waiting"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/right-round-1.wav"
+                  class="audio__right-round-1"
+                  controls
+               ></audio>
+
+               <audio
+                  src="./assets/audios/wrong-round-1.wav"
+                  class="audio__wrong-round-1"
+                  controls
+               ></audio>
+            </div>
+            <!-- End Support -->
+         </div>
+         <!-- End Container -->
+      </div>
+      <!-- End App Millionaire -->
+      <script type="module" src="./js/index.js"></script>
+   </body>
+</html>

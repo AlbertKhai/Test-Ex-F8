@@ -1,0 +1,233 @@
+.shop {
+   min-height: 100vh;
+   background-color: $bg;
+   color: $headingColor;
+
+   .container {
+      width: 85%;
+      margin: 0 auto;
+      padding: 0 0 40px;
+      text-align: center;
+      position: relative;
+      .shop-inner {
+         .product {
+            .product-title {
+               text-align: center;
+               font-size: 4rem;
+               margin: 10px 0 15px;
+            }
+
+            .product-list {
+               display: grid;
+               grid-template-columns: repeat(4, 1fr);
+               grid-template-rows: repeat(4, 1fr);
+               gap: 20px;
+
+               .product-item {
+                  border-radius: 24px;
+                  padding: 16px;
+                  background-color: #ffffff11;
+
+                  display: flex;
+                  flex-direction: column;
+
+                  .product-thumb {
+                     height: 250px;
+                     display: block;
+
+                     background: $bg;
+                     background: linear-gradient(110deg, #030d22 20%, #ffffff05 35%, #030d22 50%);
+                     background-size: 200% 100%;
+                     animation: 1.5s shine linear infinite;
+
+                     border-top-right-radius: 8px;
+                     border-top-left-radius: 8px;
+                     cursor: pointer;
+
+                     &.no-animation {
+                        animation: none;
+                     }
+
+                     @keyframes shine {
+                        to {
+                           background-position-x: -200%;
+                        }
+                     }
+
+                     .product-img {
+                        vertical-align: bottom;
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-top-right-radius: 8px;
+                        border-top-left-radius: 8px;
+                     }
+                  }
+
+                  .product-content {
+                     flex: 1 0;
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: space-between;
+                     padding: 15px 10px 5px;
+
+                     .product-name {
+                        font-size: 2rem;
+                        font-weight: 500;
+                        color: $textColor;
+                        cursor: pointer;
+                     }
+
+                     .product-action {
+                        margin-top: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .product-price {
+                           font-size: 1.8rem;
+                           color: $primaryColor;
+                        }
+                        .product-btn__add {
+                           @include btn(#ff9a76, #ff6363, #ff1e62);
+                        }
+                     }
+                  }
+               }
+            }
+
+            .product-pagination {
+               margin-top: 20px;
+               display: flex;
+               justify-content: center;
+               gap: 10px;
+               .btn__next-page,
+               .btn__prev-page {
+                  @include btn(#2ee8ff, #2ebeff, #2e94ff);
+               }
+            }
+         }
+
+         .product-detail {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include show-hide();
+
+            .product-detail__inner {
+               min-height: 462px;
+               min-width: 992px;
+               max-width: 70%;
+               border-radius: 10px;
+               backdrop-filter: blur(10px);
+
+               padding: 20px 30px;
+               cursor: default;
+
+               display: flex;
+               gap: 15px;
+
+               background: $bg;
+               background: linear-gradient(110deg, #030d22 20%, #030d2205 35%, #030d22 50%);
+               background-size: 200% 100%;
+               animation: 0.8s shine linear infinite;
+
+               &.no-animation {
+                  animation: none;
+                  background: rgba($color: #030d22, $alpha: 0.75);
+               }
+
+               @keyframes shine {
+                  to {
+                     background-position-x: -200%;
+                  }
+               }
+
+               .wrap__img-product {
+                  width: 25%;
+                  align-self: center;
+
+                  .img-product {
+                     max-width: 100%;
+                     border-radius: 8px;
+                  }
+               }
+
+               .wrap__content {
+                  width: 70%;
+                  .brand-product {
+                     font-size: 3rem;
+                     font-weight: 700;
+                  }
+
+                  .name-product {
+                     font-size: 4rem;
+                     margin-bottom: 15px;
+                     color: $primaryColor;
+                  }
+
+                  .desc-product {
+                     max-height: 30vh;
+                     padding: 15px 10px 20px;
+                     font-size: 1.8rem;
+                     overflow-y: auto;
+
+                     &::-webkit-scrollbar {
+                        width: 10px;
+                     }
+
+                     &::-webkit-scrollbar-track {
+                        background-color: #fafafa;
+                        border-radius: 99px;
+                     }
+
+                     &::-webkit-scrollbar-thumb {
+                        background-image: linear-gradient(-45deg, #af40ff, #5b42f3, #00ddeb);
+                        border-radius: 99px;
+                     }
+                  }
+
+                  .wrap__info {
+                     display: flex;
+                     justify-content: space-evenly;
+                     margin: 20px 15px;
+
+                     .info-left {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        .category-product {
+                           font-size: 2.3rem;
+                           color: $secondaryColor;
+                        }
+                        .btn__home {
+                           @include btn();
+                        }
+                     }
+
+                     .info-right {
+                        @extend .info-left;
+                        .price-product {
+                           font-size: 2.3rem;
+                        }
+                        .btn__add-cart {
+                           @include btn(#ff9a76, #ff6363, #ff1e62);
+                        }
+                     }
+                  }
+               }
+            }
+
+            .overlay__product-detail {
+               position: absolute;
+               inset: 0;
+               z-index: -1;
+               background-color: rgba($color: #000000, $alpha: 0.5);
+            }
+         }
+      }
+   }
+}
